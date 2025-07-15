@@ -1,0 +1,139 @@
+# 📊 NoteLink Pro – Data Model
+
+This data model outlines the core database entities and their relationships for NoteLink Pro.
+
+---
+
+## 🧾 1. Entity: User
+
+| Field | Type | Description |
+|-------|------|-------------|
+| user_id | UUID | Primary Key |
+| name | String | Full name |
+| email | String | Unique email address |
+| password_hash | String | Encrypted password |
+| role | Enum (Admin, Manager, Rep) | User permission level |
+| org_id | UUID | FK to Organization |
+| created_at | Timestamp | Account creation date |
+| last_login | Timestamp | Most recent login |
+
+---
+
+## 🏢 2. Entity: Organization
+
+| Field | Type | Description |
+|-------|------|-------------|
+| org_id | UUID | Primary Key |
+| org_name | String | Company name |
+| plan_type | Enum (Free, Team, Enterprise) | Subscription level |
+| created_at | Timestamp | Onboarding date |
+| domain_whitelist | Array | Allowed email domains |
+
+---
+
+## 📓 3. Entity: Note
+
+| Field | Type | Description |
+|-------|------|-------------|
+| note_id | UUID | Primary Key |
+| title | String | Note title |
+| content | Text | Full note body |
+| user_id | UUID | FK to User (author) |
+| org_id | UUID | FK to Organization |
+| status | Enum (Draft, Final, Shared) | Workflow status |
+| tags | Array[String] | List of topic tags |
+| linked_to | Enum (Lead, Deal, Account) | Context link |
+| linked_id | UUID | CRM-linked object ID |
+| created_at | Timestamp | Date created |
+| updated_at | Timestamp | Last edit time |
+
+---
+
+## 🗂️ 4. Entity: Notebook
+
+| Field | Type | Description |
+|-------|------|-------------|
+| notebook_id | UUID | Primary Key |
+| name | String | Notebook title |
+| user_id | UUID | FK to Owner |
+| org_id | UUID | FK to Organization |
+| shared_with | Array[UUID] | Shared user IDs |
+| created_at | Timestamp | Creation time |
+
+---
+
+## 🔗 5. Entity: External Integration
+
+| Field | Type | Description |
+|-------|------|-------------|
+| integration_id | UUID | Primary Key |
+| user_id | UUID | FK to User |
+| type | Enum (Evernote, OneNote, Salesforce, HubSpot) | Integration type |
+| access_token | String | OAuth token |
+| refresh_token | String | Token for renewal |
+| expiration | Timestamp | Token expiry date |
+
+---
+
+## 🧠 6. Entity: AI Summary
+
+| Field | Type | Description |
+|-------|------|-------------|
+| summary_id | UUID | Primary Key |
+| note_id | UUID | FK to Note |
+| summary_text | Text | TL;DR content |
+| generated_by | Enum (AI, User) | Source of summary |
+| created_at | Timestamp | When it was generated |
+
+---
+
+## 🔊 7. Entity: Transcription
+
+| Field | Type | Description |
+|-------|------|-------------|
+| transcript_id | UUID | Primary Key |
+| note_id | UUID | FK to Note |
+| audio_url | String | Link to audio file |
+| transcript_text | Text | Full transcription |
+| created_at | Timestamp | Processing time |
+
+---
+
+## 🔐 8. Entity: Permission
+
+| Field | Type | Description |
+|-------|------|-------------|
+| permission_id | UUID | Primary Key |
+| user_id | UUID | FK to User |
+| note_id | UUID | FK to Note |
+| access_level | Enum (View, Comment, Edit, Admin) | Level of access |
+| granted_by | UUID | FK to User (sharer) |
+| granted_at | Timestamp | When permission was granted |
+
+---
+
+## 🧾 9. Entity: Audit Log
+
+| Field | Type | Description |
+|-------|------|-------------|
+| log_id | UUID | Primary Key |
+| user_id | UUID | FK to User |
+| action | String | Description of activity |
+| target_type | Enum (Note, Notebook, Integration) | Affected entity |
+| target_id | UUID | FK to target |
+| timestamp | Timestamp | Time of event |
+
+---
+
+## 🔗 Entity Relationships
+
+- **User ↔ Notes:** One-to-Many (a user can create many notes)
+- **User ↔ Notebook:** One-to-Many
+- **Note ↔ Notebook:** Many-to-One (each note belongs to one notebook)
+- **Note ↔ CRM Object (Deal/Lead):** One-to-One (external ID stored)
+- **Note ↔ AI Summary / Transcript:** One-to-One
+- **Note ↔ Permissions:** One-to-Many (shared with multiple users)
+- **Organization ↔ Users/Notes/Notebooks:** One-to-Many
+
+---
+
