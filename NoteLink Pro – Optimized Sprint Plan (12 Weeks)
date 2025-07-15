@@ -1,0 +1,170 @@
+# 🗓️ NoteLink Pro – Optimized Sprint Plan (12 Weeks)
+
+**Framework:** Agile Scrum  
+**Sprint Length:** 2 weeks  
+**Team:** 6–8 engineers, 1 designer, 1 PM, 1 QA  
+**Tools:** Windsurf (or Lovable), GitHub, Figma, Supabase, OpenAI API, Postgres
+
+---
+
+## 🏁 Pre-Sprint 0 – Discovery & Setup (Week 0)
+
+- User interviews (sales reps, sales managers)
+- UX research + prototype sketches (Figma)
+- Define success metrics and KPIs
+- Set up project repo, database schema, and API scaffolding
+- Connect Windsurf or Lovable workspace
+- Select NLP/AI transcription APIs (e.g. Whisper, GPT, Claude)
+- Assign epics to team members in Windsurf
+
+**Deliverables:**  
+✓ Research report  
+✓ Wireframes  
+✓ Project setup checklist complete  
+
+---
+
+## 🚀 Sprint 1 – Core Note-Taking + Structure (Week 1–2)
+
+### Goals:
+- Create the foundational note-taking experience
+- Set up notebooks, tags, and folders
+- Begin user auth & organization model
+
+### Tasks:
+- US 1.1 – Create/edit/save notes  
+- US 2.1 – Organize notes into notebooks  
+- US 2.2 – Tag notes with keywords  
+- US 6.1 – Basic permissions (Private / Org)
+- DB schema: `Note`, `Notebook`, `User`, `Org`, `Tag`
+- UI: Note editor with Markdown formatting
+- Frontend auth + basic dashboard
+
+**Deliverables:**  
+✓ Full note CRUD  
+✓ Notebook + tagging UI  
+✓ Login + Org setup  
+✓ Working dashboard MVP  
+
+---
+
+## 🤖 Sprint 2 – AI + Voice Features (Week 3–4)
+
+### Goals:
+- Integrate voice-to-text and TL;DR AI summaries
+- Capture audio in notes
+
+### Tasks:
+- US 1.2 – Voice-to-text capture  
+- US 3.1 – AI-generated TL;DR summary  
+- US 1.4 – Attach audio files  
+- US 3.2 – Auto-tagging notes  
+- DB schema: `Transcription`, `Audio`, `AI_Summary`
+- Backend: Integrate Whisper / OpenAI  
+- Test AI accuracy and UX feedback loop
+
+**Deliverables:**  
+✓ Voice input working on web  
+✓ AI summary engine deployed  
+✓ Audio playback embedded in notes  
+
+---
+
+## 📊 Sprint 3 – CRM + Sales Playbook Features (Week 5–6)
+
+### Goals:
+- Build CRM integration (Salesforce MVP)
+- Add contextual sales playbooks & templates
+
+### Tasks:
+- US 4.1 – Link notes to CRM opportunities  
+- US 4.2 – Sync contacts/accounts from Salesforce  
+- US 4.3 – In-note playbook viewer  
+- US 3.3 – Follow-up email generator  
+- CRM Connector Service (Salesforce OAuth)
+- DB schema: `CRM_Object`, `Deal_Note_Link`, `Playbook`
+
+**Deliverables:**  
+✓ Connect to Salesforce  
+✓ Account/deal search in note sidebar  
+✓ Sales playbook UI embedded  
+✓ Follow-up generator (GPT prompt-based)
+
+---
+
+## 🤝 Sprint 4 – Collaboration & Sharing (Week 7–8)
+
+### Goals:
+- Enable live co-editing and team sharing
+- Implement real-time sync and permissions
+
+### Tasks:
+- US 5.1 – Share note with team  
+- US 5.2 – Real-time co-editing (e.g., WebSockets, Yjs)  
+- US 5.3 – Client-safe export  
+- US 6.2 – Audit log tracking  
+- DB schema: `Permissions`, `AuditLog`
+
+**Deliverables:**  
+✓ Co-editing via WebSocket  
+✓ Role-based share modal  
+✓ Export client view  
+✓ Audit trail for notes  
+
+---
+
+## 🔐 Sprint 5 – Security, Admin & Analytics (Week 9–10)
+
+### Goals:
+- Harden security model + admin tools
+- Track engagement metrics and usage logs
+
+### Tasks:
+- US 6.3 – Role-based access control  
+- US 6.2 – Full audit history viewer  
+- Admin dashboard: Team notes, active users  
+- User activity logs + note engagement metrics
+
+**Deliverables:**  
+✓ Admin roles and access matrix  
+✓ Usage analytics UI  
+✓ Audit viewer  
+
+---
+
+## 📱 Sprint 6 – Mobile App + Final Polish (Week 11–12)
+
+### Goals:
+- Build mobile app (iOS + Android with React Native or Expo)
+- Polish UX, performance, and onboarding
+- Prep for GA launch
+
+### Tasks:
+- US 7.1 – Mobile create/edit note  
+- US 7.2 – Mobile voice capture  
+- US 8.1 – Onboarding walkthrough  
+- US 8.2 – Import Evernote/OneNote in signup flow  
+- QA bug fixes and performance improvements  
+- GA landing page (marketing + demo)
+
+**Deliverables:**  
+✓ Mobile apps submitted to App Stores  
+✓ Cleaned UI + tutorial flows  
+✓ Marketing site with demo CTA  
+✓ Production-ready v1
+
+---
+
+## ✅ MVP Launch Readiness Checklist
+
+- [x] Note editor (text, voice, audio)  
+- [x] CRM sync + sales integrations  
+- [x] AI summary + follow-up tools  
+- [x] Live sharing + permissions  
+- [x] Mobile support  
+- [x] Admin dashboard  
+- [x] Onboarding & migration flows  
+- [x] Legal/privacy: GDPR, SOC2-lite  
+
+---
+
