@@ -52,4 +52,65 @@ Develop a high-performance, secure note-taking application tailored for enterpri
 
 ### 📱 Platform Support
 - Web (React-based SPA)
-- iOS and Android
+- iOS and Android mobile apps
+- Desktop app via Electron
+
+---
+
+## 3. User Stories (Epics & Examples)
+
+### Epic 1: Note Creation & Capture
+- As a rep, I want to create meeting notes using voice-to-text so I can focus on my client.
+- As a user, I want to import notes from Evernote and OneNote to avoid duplicate work.
+
+### Epic 2: CRM + Sales Enablement Integration
+- As a rep, I want to link notes to Salesforce deals so I can track engagement context.
+- As a manager, I want to view and coach from my team’s sales notes.
+
+### Epic 3: Collaboration & Sharing
+- As a rep, I want to co-edit live notes with my team during a call.
+- As a rep, I want to share sanitized notes externally with clients.
+
+### Epic 4: AI-Driven Workflows
+- As a user, I want a quick summary of my long meeting notes.
+- As a user, I want AI to suggest follow-up tasks based on content.
+
+### Epic 5: Data Governance
+- As an admin, I want to set permissions for editing and viewing.
+- As an IT manager, I want audit logs for compliance.
+
+---
+
+## 4. Success Metrics
+
+- 85%+ of enterprise users connect at least one external note source  
+- 90%+ accuracy in voice-to-text transcription  
+- 3+ minutes average time saved per note via AI summary  
+- 20%+ increase in CRM note logging compliance  
+- <5s average load time across all platforms  
+
+---
+
+## 5. Risks & Mitigation
+
+| Risk | Mitigation |
+|------|------------|
+| API rate limits from Evernote/OneNote | Background queueing + token refresh system |
+| Complexity of CRM integrations | Start with Salesforce MVP, stagger rollouts |
+| Privacy concerns for note content | End-to-end encryption + user-controlled permissions |
+
+---
+
+## 6. Timeline & Milestones
+
+| Phase | Timeline | Deliverables |
+|-------|----------|--------------|
+| Discovery & UX Research | Week 1–2 | Surveys, User Personas, Journey Maps |
+| MVP Build (Note Core + Sync) | Week 3–8 | Web App with import tools |
+| AI Summary & Voice Transcription | Week 9–11 | AI pipelines |
+| CRM Sync + Sales Templates | Week 12–15 | Salesforce connector, Playbook UI |
+| Mobile App Launch | Week 16–20 | iOS/Android native apps |
+| General Access (GA) Launch | Week 22 | Full Feature Public Beta |
+
+---
+
